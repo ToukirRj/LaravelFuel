@@ -31,6 +31,9 @@
                                         <input class="form-control @error('password') is-invalid @enderror"
                                             value="{{ old('password') }}" type="password" id="password" name="password"
                                             placeholder="Type password" required>
+                                            <p class="mt-2 last-rem">
+                                                <a href="{{ route('password.request') }}" style="font-size:14px">Forgot Password?</a>
+                                            </p>
                                         @error('password')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>

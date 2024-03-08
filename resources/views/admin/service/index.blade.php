@@ -2,7 +2,7 @@
 
 <div class="br-pagetitle">
     <div class="custom-page-title pl-0">
-        <h4 class="float-left">Services</h4>
+        <h4 class="float-left">Service and Prices</h4>
         <a href="{{ route('admin.service.create') }}" class="btn btn-primary btn-sm float-right"><i class="fa fa-plus"></i> Add New</a>
         <p class="mg-b-0"></p>
     </div>
@@ -16,6 +16,9 @@
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
+                        <th>Short Name</th>
+                        <th>Unit</th>
+                        <th>Price</th>
                         <th>Status</th>
                         <th class="text-center">Action</th>
                     </tr>
@@ -24,6 +27,9 @@
                     <tr>
                         <th scope="row">{{ $key+1 }}</th>
                         <th>{{ $row->name }}</th>
+                        <th>{{ $row->short_name }}</th>
+                        <th>{{ $row->unit }}</th>
+                        <th>${{ $row->price }}</th>
                         <td>
                             @if($row->status==1)
                             <span class="btn btn-sm btn-success"><i class="fa fa-arrow-up" aria-hidden="true"></i></span>

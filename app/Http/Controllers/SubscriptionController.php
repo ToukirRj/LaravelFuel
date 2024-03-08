@@ -10,7 +10,11 @@ use \Stripe\Stripe;
 use App\Models\Plan;
 use App\Models\Subscription;
 use Laravel\Cashier\Cashier;
+use App\Mail\NewSubscriptionMail;
+use Illuminate\Support\Facades\DB;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\StoreSubscriptionRequest;
 use App\Http\Requests\UpdateSubscriptionRequest;
 
@@ -61,7 +65,9 @@ class SubscriptionController extends Controller
     {
         // dd($request->all());
         try {
+            DB::beginTransaction();
             $plan = Plan::find($request->plan);
+            
             $user =  $request->user();
             $subscription = $user->newSubscription($request->plan, $plan->stripe_plan_id)
                             ->create($request->token);
@@ -69,10 +75,19 @@ class SubscriptionController extends Controller
             $date = Carbon::createFromFormat('Y-m-d', $user->validity ?? date("Y-m-d"));
             $user->validity = $date->addDays($plan->validity);
             $user->save();
-            return view("subscription_success",compact("subscription"));
+            DB::commit();
+
+            Mail::to($user->email)->send(new NewSubscriptionMail($user,$plan));
+
+            Toastr::success('Subscription Payment Successfull', 'Title', ["positionClass" => "toast-top-center"]);
+
+            return redirect(route("dashboard"));
         } catch (\Throwable $th) {
-            throw $th;
-            // return view("subscription_success",compact("subscription"));
+            DB::rollBack();
+            dd($th);
+            Toastr::error("Subscription Payment Faild",'Title', ["positionClass" => "toast-top-center"]);
+
+            return redirect(route("plans.show",$request->plan));
         }
 
 

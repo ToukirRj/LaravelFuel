@@ -2,11 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use DateTime;
+use App\Models\Day;
+use App\Models\Service;
+use App\Models\Time;
 use App\Models\Order;
+use App\Mail\OrderReceived;
 use App\Classes\SkFileUpload;
+use App\Mail\DeliveryConfirmation;
 use Illuminate\Support\Facades\DB;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Lang;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
 
@@ -20,7 +27,8 @@ class OrderController extends Controller
         $request = request();
         return view('admin.order.index',[
             'data'=>Order::with([
-                    "user"
+                    "user",
+                    "service"
                 ])->orderBy('id','desc')->paginate( $request->par_page ?? 25)
             ]);
     }
@@ -47,14 +55,29 @@ class OrderController extends Controller
      */
     public function store(StoreOrderRequest $request,SkFileUpload $skFileUpload)
     {
+        // dd($request->all());
+
+        $date = Day::find($request->date_id);
+        $time = Time::find($request->time_id);
+
+        $dateString = "$date->date $time->time";
+        $dateTime = new DateTime($dateString);
+        $service = Service::find($request->service_id);
         try {
             DB::beginTransaction();
                $order =  Order::create([
                     "vehicle_name" =>$request->vehicle_name,
                     "vehicle_model" =>$request->vehicle_model,
-                    "delivery_date_time" =>$request->delivery_date_time,
+                    "delivery_date_time" => $dateTime->format('Y-m-d H:i:s'),
                     "address" =>$request->address,
                     "user_id" =>$request->user()->id,
+                    "day_id" =>$request->date_id,
+                    "time_id" =>$request->time_id,
+                    "service_id" =>$request->service_id,
+                    "price" =>$request->price ?? $service->price,
+                    "qty" =>$request->amount ?? 0,
+                    "total" =>$request->total ?? 0,
+                    "image" =>$request->oldimg,
                ]);
                 if ($request->hasFile("image")) {
                     $skFileUpload->imageUpload(
@@ -65,6 +88,9 @@ class OrderController extends Controller
                     );
                 }
             DB::commit();
+            $user = auth()->user();
+            Mail::to($user->email)->send(new OrderReceived($user,$order));
+
             Toastr::success('Order Created Successfully', 'Title', ["positionClass" => "toast-top-center"]);
 
         } catch (\Throwable $th) {
@@ -122,7 +148,7 @@ class OrderController extends Controller
                 "id"=>$request->order_id,
                ])->firstOrFail();
                $order->qty = $request->qty;
-               $order->price = $request->price;
+            //    $order->price = $request->price;
                $order->total = $request->total;
                $order->paid_amount = $request->total;
             //    $order->due_amount = $request->due_amount;
@@ -131,6 +157,11 @@ class OrderController extends Controller
                $order->save();
                $order->user->debitBalance($request->total * 100, 'Gasoline Order Payment id:#'.$order->id);
             DB::commit();
+
+
+            $user = $order->user;
+            Mail::to($user->email)->send(new DeliveryConfirmation($user,$order));
+
             Toastr::success('Status Changed Successfully', 'Title', ["positionClass" => "toast-top-center"]);
 
         } catch (\Throwable $th) {

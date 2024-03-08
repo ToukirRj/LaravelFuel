@@ -283,7 +283,19 @@ label {
     font-size: 14px;
     font-weight: 500;
     letter-spacing: .5px;
-    padding: 0 20px !important;
+    padding: 6px 20px !important;
+    
+}
+
+.menu-area nav ul li a.reqfuel {
+    background: #FDC136;
+    color: #18232B;
+    padding: 6px 15px !important;
+    border-radius: 5px;
+}
+
+.menu-area nav ul li a.reqfuel:hover {
+    color: #18232B !important;
 }
 
 .menu-area nav ul li a:hover {
@@ -512,6 +524,7 @@ label {
     text-align: center;
     line-height: 20px;
     text-transform: capitalize;
+    width:100%;
 }
 
 .about-text {
@@ -583,6 +596,21 @@ label {
     background: #FFF4E0;
     border-radius: 40px;
     padding: 50px;
+}
+
+.service-field ul {
+	width: 480px;
+	max-width: 100%;
+	margin: auto;
+	padding: 0 20px;
+}
+
+.service-field ul li {
+	list-style: disc;
+	text-align: start;
+	font-size: 21px;
+	font-weight: 600;
+	color: #333;
 }
 
 .service-area .head-text h5::after {
@@ -849,7 +877,11 @@ label {
     border: 2px solid #DFE3E7;
     border-radius: 5px;
     color: #000;
-    background: #fff;
+}
+
+.default-form .form-group .form-check-input[type="checkbox"]{
+    height:20px;
+    width:20px;
 }
 
 .default-form .form-group select{
@@ -1031,7 +1063,7 @@ label {
 	background: transparent;
 	font-size: 16px;
     font-weight:500;
-    color:#47545E;
+    color:#62727E;
 }
 .others-top-nav .active {
 	border: 0;
@@ -1072,6 +1104,10 @@ label {
     margin-bottom:0;
     padding:10px 5px;
 }
+.tab-pane .tab-box table tbody tr td img{
+	object-fit: cover;
+	object-position: center;
+}
 .tab-pane .tab-box table tbody tr td .delivered{
 	padding:4px 10px;
     background-color:#0e8327;
@@ -1101,6 +1137,9 @@ label {
 /*=========Upload-Profile-Image==========*/
 .modal{
     z-index:99999999;
+}
+#reqModal.modal .modal-dialog{
+    max-width:600px;
 }
 .modal-backdrop {
 	z-index:99999;

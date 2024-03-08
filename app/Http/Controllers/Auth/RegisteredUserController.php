@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
-
+use Mail;
+use App\Mail\UserRegistrationMail;
 class RegisteredUserController extends Controller
 {
     /**
@@ -49,7 +50,7 @@ class RegisteredUserController extends Controller
         ]);
 
         event(new Registered($user));
-
+        Mail::to($user->email)->send(new UserRegistrationMail($user));
         Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);

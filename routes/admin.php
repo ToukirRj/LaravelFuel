@@ -3,8 +3,10 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\Admin\DayController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\PlanController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
@@ -13,7 +15,6 @@ use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\WebInfoController;
 use App\Http\Controllers\Admin\TestimonialController;
-use App\Http\Controllers\Admin\PageController;
 
 
 Route::middleware('auth:admin')->group(function(){
@@ -31,12 +32,9 @@ Route::middleware('auth:admin')->group(function(){
     Route::resource('user', UserController::class);
     Route::resource('setting', SettingController::class);
     Route::resource('page', PageController::class);
+    Route::resource('date', DayController::class);
 	Route::resource('contactmessage', ContactUsController::class);
 
-	Route::prefix('/settings')->name('web.')->group(function(){
-		Route::get('/', [WebInfoController::class,'index'])->name('index');
-		Route::post('/update', [WebInfoController::class,'update'])->name('update');
-	});
 	Route::prefix('/profile')->name('profile.')->group(function(){
 		Route::get('/', [AccountController::class,'index'])->name('index');
 		Route::get('/edit', [AccountController::class,'edit'])->name('edit');

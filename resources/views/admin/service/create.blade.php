@@ -12,10 +12,10 @@
         <form action="{{ route('admin.service.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row mg-b-25">
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <div class="form-group">
                         <label class="form-control-label">Name: </label>
-                        <input class="form-control @error('name') is-invalid @enderror" type="text" name="name" placeholder="EX: Basic service" value="{{ old('name') }}" required />
+                        <input class="form-control @error('name') is-invalid @enderror" type="text" name="name" placeholder="EX: Gasoline Delivery" value="{{ old('name') }}" required />
                         @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -23,7 +23,40 @@
                         @enderror
                     </div>
                 </div>
-                
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="form-control-label">Short Name: </label>
+                        <input class="form-control @error('short_name') is-invalid @enderror" type="text" name="short_name" placeholder="EX: Gas" value="{{ old('short_name') }}" required />
+                        @error('short_name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="form-control-label">Unit: </label>
+                        <input class="form-control @error('unit') is-invalid @enderror" type="text" name="unit" placeholder="EX: Gallon Or Litre" value="{{ old('unit') }}" required />
+                        @error('unit')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="form-control-label">Price (Per Unit): </label>
+                        <input class="form-control @error('price') is-invalid @enderror" type="number" step="any" name="price" placeholder="Price Per Unit" value="{{ old('price') }}" required />
+                        @error('price')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                </div>
+
                 <div class="col-md-12">
                     <div class="form-group">
                         <label class="form-control-label">Details: </label>
@@ -37,7 +70,7 @@
                         @enderror
                     </div>
                 </div>
-                
+
                 <div class="col-lg-6">
                     <div class="form-group">
                         <label class="form-control-label">Image <span class="tx-danger">*</span></label>
@@ -49,7 +82,7 @@
                         @enderror
                     </div>
                 </div>
-                
+
                 <div class="col-sm-2">
                     <div class="form-group">
                         <label class="form-control-label">Sort Index: </label>

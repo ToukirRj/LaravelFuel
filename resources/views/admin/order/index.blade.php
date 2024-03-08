@@ -13,7 +13,8 @@
                             <th>ID</th>
                             <th>User Information</th>
                             <th class="text-center">Image</th>
-                            <th>Vehicle Information</th>
+                            <th title="Vehicle Information">V.I</th>
+                            <th colspan="2">Service</th>
                             <th class="text-center">Date & Time</th>
                             <th>Delivery Address</th>
                             <th class="text-center">Status</th>
@@ -34,37 +35,31 @@
                                     <img src="{{ asset($row->image ?? 'frontend//img/noimg.png') }}" alt="img"
                                         width="60" height="40" />
                                 </td>
-                                <td>
+                                <td colspan="2">
                                     {{ $row->vehicle_name }} <br>
                                     License plate No: {{ $row->vehicle_model }}
                                 </td>
-                                <td class="text-center">{{ $row->delivery_date_time }}</td>
+                                <td>
+                                    @if($row->qty == 0)
+                                    Full Tank, {{ $row->service?->short_name ?? $row->service?->name }}
+                                    @else
+                                        {{ $row->qty }} {{ $row->unit ?? $row->service?->unit }} {{ $row->service?->short_name ?? $row->service?->name }} <br>
+                                        {{-- Price: {{ $row->price }}<br>
+                                        Total: {{ $row->total }}<br> --}}
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ date('M-d-Y  H:i:s', strtotime($row->delivery_date_time)) }}</td>
                                 <td>{{ $row->address }}</td>
                                 <td class="text-center">{{ $row->status }}</td>
                                 <td class="text-center">
-                                    <div class="dropdown">
-                                        <a href="javascript:void(0)" class="tx-gray-800 d-inline-block"
-                                            data-toggle="dropdown">
-                                            <div class="ht-45 pd-x-20 bd d-flex align-items-center justify-content-center">
-                                                <span class="mg-r-10 tx-13 tx-medium">Action</span>
-                                                <i class="fa fa-angle-down mg-l-10"></i>
-                                            </div>
-                                        </a>
-                                        <div class="dropdown-menu pd-10 wd-200">
-                                            <nav class="nav nav-style-2 flex-column">
-                                                <a class="nav-link" href="{{ route('admin.order.show', $row->id) }}"
-                                                    class="ml-2"> <i class="icon ion-ios-person"></i> View
-                                                    Order</a>
-                                                {{-- <a class="nav-link" href="{{ route('admin.order.edit',$row->id) }}" class="ml-2">Edit</a> --}}
-                                                @if($row->status == "Pending")
-                                                    <a class="nav-link" href="javascript:void()" onclick="status_deleverd({{ $row }})" class="ml-2">Make Delivered</a>
-                                                @else
-                                                    {{-- <a class="nav-link" href="javascript:void()" onclick="status_deleverd()" class="ml-2">Make Delivered</a> --}}
-                                                @endif
-
-                                            </nav>
-                                        </div><!-- dropdown-menu -->
-                                    </div>
+                                    @if($row->status == "Pending")
+                                    <a class="btn btn-info btn-sm" href="javascript:void()" onclick="status_deleverd({{ $row }})" class="ml-2">Make Delivered</a>
+                                    @else
+                                        {{-- <a class="nav-link" href="javascript:void()" onclick="status_deleverd()" class="ml-2">Make Delivered</a> --}}
+                                    @endif
+                                    {{-- <a class="nav-link" href="{{ route('admin.order.show', $row->id) }}"
+                                        class="ml-2"> <i class="icon ion-ios-person"></i> View
+                                        Order</a> --}}
                                 </td>
                             </tr>
                         @endforeach
@@ -99,7 +94,7 @@
                             <p class="form-control" id="phone"  > </p>
 
                             <div class="form-group">
-                                <label class="form-control-label">Gas Qty(Gallon): </label>
+                                <label class="form-control-label">Gas  (Gallon): </label>
                                 <input class="form-control @error('qty') is-invalid @enderror" id="qty" oninput="calculate()" type="number" step="any" name="qty" min="0"  value="0" required />
                                 @error('qty')
                                 <span class="invalid-feedback" role="alert">
@@ -107,17 +102,17 @@
                                 </span>
                                 @enderror
                             </div>
-                            
+
                             <div class="form-group">
-                                <label class="form-control-label">Per Gallon ($): </label>
-                                <input class="form-control @error('price') is-invalid @enderror" id="price" oninput="calculate()" type="number" step="any" name="price" min="0"  value="0" required />
+                                <label class="form-control-label">Per Unit ($): </label>
+                                <input class="form-control @error('price') is-invalid @enderror" id="price" type="number" step="any"  value="0" readonly />
                                 @error('price')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                                 @enderror
                             </div>
-                            
+
                             <div class="form-group">
                                 <label class="form-control-label">Total Price: </label>
                                 <input class="form-control @error('total') is-invalid @enderror" id="total" type="number" step="any" name="total" min="0"  value="0" readonly />
@@ -153,12 +148,19 @@
         $("#vehicle_name").html(data.vehicle_name)
         $("#vehicle_model").html(data.vehicle_model)
 
+
+
+
         $("#order_id").val(data.id)
         $("#status").val("Delivered")
 
-        $("#qty").val(0)
-        $("#price").val(0)
-        $("#total").val(0)
+        $("#qty").val(data.qty)
+
+        $("#qty").prev('label').text(`${data.service.short_name}  (${data.service.unit}):`);
+        $("#price").val(data.price)
+
+        $("#price").prev('label').text(`Per Unit (${data.service.unit}):`);
+        $("#total").val(data.total)
 
         $("#make-deleverd").modal("show")
         console.log("sssssssssssss");

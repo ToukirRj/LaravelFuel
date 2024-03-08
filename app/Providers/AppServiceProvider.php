@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Models\Cashier\User;
+use App\Models\User;
 use Laravel\Cashier\Cashier;
 use Illuminate\Pagination\Paginator;
 

@@ -44,7 +44,7 @@
                     <div class="others-info">
                         <nav class="others-top-nav">
                             <div class="nav" id="nav-tab" role="tablist">
-                              <button class="active" id="tab1" data-bs-toggle="tab" data-bs-target="#navtab1" type="button" role="tab" aria-control="tab1" aria-selected="true">My Request List</button>
+                              <button class="active" id="tab1" data-bs-toggle="tab" data-bs-target="#navtab1" type="button" role="tab" aria-control="tab1" aria-selected="true">Request Fuel</button>
                               <button id="tab2" data-bs-toggle="tab" data-bs-target="#navtab2" type="button" role="tab" aria-controls="tab2" aria-selected="false">My Membership Plans</button>
                               <button id="tab3" data-bs-toggle="tab" data-bs-target="#navtab3" type="button" role="tab" aria-controls="tab3" aria-selected="false">Settings</button>
                             </div>

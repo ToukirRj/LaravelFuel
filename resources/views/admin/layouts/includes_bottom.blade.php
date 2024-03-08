@@ -4,7 +4,7 @@
 <script src="{{ asset('template') }}/lib/select2/js/select2.full.min.js"></script>
 <script src="{{ asset('template') }}/js/bracket.js"></script>
 
-<script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+<script src="https://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
 
 @stack('js')
 

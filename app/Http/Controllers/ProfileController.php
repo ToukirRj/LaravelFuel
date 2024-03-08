@@ -15,6 +15,8 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\ProfileUpdateRequest;
 use App\Http\Requests\PasswordUpdateRequest;
+use App\Models\Day;
+use App\Models\Order;
 
 class ProfileController extends Controller
 {
@@ -26,6 +28,9 @@ class ProfileController extends Controller
         $user = $request->user();
         return view('web.userprofile', [
             'user' => $user,
+            'lastorder'=>Order::where([
+                    "user_id" => auth()->id(),
+                ])->orderBy('id','desc')->first()
         ]);
     }
 

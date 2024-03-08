@@ -21,6 +21,6 @@
     <!-- Bracket CSS -->
     <link rel="stylesheet" href="{{ asset('template') }}/css/bracket.css">
 
-    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 
     @stack('css')

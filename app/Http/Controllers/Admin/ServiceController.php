@@ -39,6 +39,9 @@ class ServiceController extends Controller
             DB::beginTransaction();
             $service = Service::query()->create([
                 "name"=>$request->name,
+                "short_name"=>$request->short_name,
+                "price"=>$request->price,
+                "unit"=>$request->unit,
                 "sort_index"=>$request->sort_index,
                 "status"=>$request->status ?1:0,
                 "details"=>$request->details,
@@ -88,6 +91,9 @@ class ServiceController extends Controller
             DB::beginTransaction();
             Service::query()->where("id",$service->id)->update([
                 "name"=>$request->name,
+                "short_name"=>$request->short_name,
+                "price"=>$request->price,
+                "unit"=>$request->unit,
                 "slug"=>Str::slug($request->name),
                 "sort_index"=>$request->sort_index,
                 "status"=>$request->status ?1:0,

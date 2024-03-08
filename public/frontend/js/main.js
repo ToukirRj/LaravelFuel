@@ -12,7 +12,7 @@
 	// Sticky Nav==========>
 	$(window).on('scroll', function () {
 		var scroll = $(window).scrollTop();
-		if (scroll < 50) {
+		if (scroll < 10) {
 			$("#header-sticky").removeClass("sticky-menu");
 		} else {
 			$("#header-sticky").addClass("sticky-menu");

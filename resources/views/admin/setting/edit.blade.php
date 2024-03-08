@@ -25,7 +25,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="form-control-label">Name: </label>
-                            <input class="form-control @error('name') is-invalid @enderror" type="text" name="name" placeholder="EX: Basic service" value="{{ old('name',$data->name) }}" required />
+                            <input class="form-control @error('name') is-invalid @enderror" type="text" name="name" placeholder="" value="{{ old('name',$data->name) }}" required/>
                             @error('name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -36,7 +36,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="form-control-label">Phone: </label>
-                            <input class="form-control @error('phone') is-invalid @enderror" type="text" name="phone" placeholder="EX: Basic service" value="{{ old('phone',$data->phone) }}" required />
+                            <input class="form-control @error('phone') is-invalid @enderror" type="text" name="phone" placeholder="" value="{{ old('phone',$data->phone) }}"/>
                             @error('phone')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -47,7 +47,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="form-control-label">Email: </label>
-                            <input class="form-control @error('email') is-invalid @enderror" type="text" name="email" placeholder="EX: Basic service" value="{{ old('email',$data->email) }}" required />
+                            <input class="form-control @error('email') is-invalid @enderror" type="text" name="email" placeholder="" value="{{ old('email',$data->email) }}" required/>
                             @error('email')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -58,7 +58,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="form-control-label">Address: </label>
-                            <input class="form-control @error('address') is-invalid @enderror" type="text" name="address" placeholder="EX: Basic service" value="{{ old('address',$data->address) }}" required />
+                            <input class="form-control @error('address') is-invalid @enderror" type="text" name="address" placeholder="" value="{{ old('address',$data->address) }}"/>
                             @error('address')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

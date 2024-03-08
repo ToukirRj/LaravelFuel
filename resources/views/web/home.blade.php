@@ -31,7 +31,7 @@
         <!-- banner-area -->
         <section class="step-area">
             <div class="container">
-                <h2 class="text-center">With You Anywhere Need. <br>Just Simple Steps!</h2>
+                <h2 class="text-center">Simple Steps To Get Started</h2>
                 <div class="my-4 all-steps d-flex align-items-center justify-content-center">
                     <div class="each-step mx-3 d-flex align-items-center justify-content-center">
                         <span>
@@ -69,7 +69,7 @@
                                 <path fill="18232b" d="M18.029 12.205h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 0 1" />
                             </svg>
                         </span>
-                        <h4 class="mt-1">We deliver on Your Home</h4>
+                        <h4 class="mt-1">We deliver to Your Home</h4>
                     </div>
                 </div>
             </div>
@@ -87,7 +87,7 @@
                             <img src="{{asset($page?->image)}}" alt="img">
                             <div class="about-tag">
                                 <div class="line2">
-                                    <span>Quick Quality Support</span>
+                                    <span>white<br>glove<br>service</span>
                                 </div>
                             </div>
                         </div>
@@ -99,11 +99,11 @@
                                 <h2>{{$page->title_2}}</h2>
                             </div>
                             {!! $page->details !!}
-                            <a href="{{ route("about") }}" class="start-btn btn2">Learn More
+                            <a href="{{ route("register") }}" class="start-btn btn2">Request Delivery
                                 <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                                        viewBox="0 0 1024 1024" >
-                                        <path fill="18232b"
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 1024 1024"
+                                        >
+                                        <path fill="#18232B"
                                             d="M754.752 480H160a32 32 0 1 0 0 64h594.752L521.344 777.344a32 32 0 0 0 45.312 45.312l288-288a32 32 0 0 0 0-45.312l-288-288a32 32 0 1 0-45.312 45.312z" />
                                     </svg>
                                 </span>
@@ -114,9 +114,10 @@
             </div>
         </section>
         <!-- about-area-end -->
+        
         @php
-    $page = $pages->where("slug","mobile-refueling-service")->first();
-    @endphp
+            $page = $pages->where("slug","mobile-refueling-service")->first();
+        @endphp
         <section class="service-area">
             <div class="container">
                 <div class="service-field">
@@ -125,179 +126,180 @@
                         <h2>{{$page->title_2}}</h2>
                         {!! $page->details !!}
                     </div>
-                    <div class="service-box">
-                        <div class="row justify-content-center align-items-center">
-                            <div class="col-lg-5 col-md-12 col-sm-12">
-                                <span>
-                                    <img src="{{ asset('/frontend/img/services/s-1.png') }}" alt="name" />
-                                </span>
-                            </div>
-                            <div class="col-lg-7 col-md-12 col-sm-12">
-                                <h4 class="mt-1 text-start">Gasoline Delivery</h4>
-                                <p>
-                                    Having gasoline delivered to your home ensures your family vehicles are always fueled
-                                    and ready for that weekend getaway or unexpected errand.<br><br>
+                    <!--<div class="service-box">-->
+                    <!--    <div class="row justify-content-center align-items-center">-->
+                    <!--        <div class="col-lg-5 col-md-12 col-sm-12">-->
+                    <!--            <span>-->
+                    <!--                <img src="{{ asset('/frontend/img/services/s-1.png') }}" alt="name" />-->
+                    <!--            </span>-->
+                    <!--        </div>-->
+                    <!--        <div class="col-lg-7 col-md-12 col-sm-12">-->
+                    <!--            <h4 class="mt-1 text-start">Gasoline Delivery</h4>-->
+                    <!--            <p>-->
+                    <!--                Having gasoline delivered to your home ensures your family vehicles are always fueled-->
+                    <!--                and ready for that weekend getaway or unexpected errand.<br><br>-->
 
-                                    Do you need gasoline for your fleet of cars or equipment? EZ Fuel service proudly offers
-                                    all grades of gasoline — including regular, midgrade,
-                                    premium, andGloved hand holding a gas pump, filling up a large truck. non-ethanol
-                                    (recreational/marine) — and related service.<br><br>
+                    <!--                Do you need gasoline for your fleet of cars or equipment? EZ Fuel service proudly offers-->
+                    <!--                all grades of gasoline — including regular, midgrade,-->
+                    <!--                premium, andGloved hand holding a gas pump, filling up a large truck. non-ethanol-->
+                    <!--                (recreational/marine) — and related service.<br><br>-->
 
-                                    Our service team has helped to get the fuel on their home to reduce hastle and don't
-                                    need to go pamp. Backed by a fleet of trained professionals
-                                    and equipped service vehicles, guaranteed on-site fuel supplies, and supplementary fuel
-                                    service, we can meet all your gasoline needs. Need dependable
-                                    gasoline delivery service in your home?
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    <!--                Our service team has helped to get the fuel on their home to reduce hastle and don't-->
+                    <!--                need to go pamp. Backed by a fleet of trained professionals-->
+                    <!--                and equipped service vehicles, guaranteed on-site fuel supplies, and supplementary fuel-->
+                    <!--                service, we can meet all your gasoline needs. Need dependable-->
+                    <!--                gasoline delivery service in your home?-->
+                    <!--            </p>-->
+                    <!--        </div>-->
+                    <!--    </div>-->
+                    <!--</div>-->
                 </div>
             </div>
         </section>
-        @php
-    $page = $pages->where("slug","service")->first();
-    @endphp
-        <!-- about-area -->
-        <section class="about-area">
-            <div class="container">
-                <div class="row justify-content-center align-items-center">
-                    <div class="col-lg-6 col-md-12 col-sm-12">
-                        <div class="about-text oposite-text">
-                            <div class="head-text oposite-head text-end">
-                                <h5>{{$page->title}}</h5>
-                        <h2>{{$page->title_2}}</h2>
+        
+        
+        <!--@php-->
+        <!--    $page = $pages->where("slug","service")->first();-->
+        <!--@endphp-->
+        <!--<section class="about-area">-->
+        <!--    <div class="container">-->
+        <!--        <div class="row justify-content-center align-items-center">-->
+        <!--            <div class="col-lg-6 col-md-12 col-sm-12">-->
+        <!--                <div class="about-text oposite-text">-->
+        <!--                    <div class="head-text oposite-head text-end">-->
+        <!--                        <h5>{{$page->title}}</h5>-->
+        <!--                <h2>{{$page->title_2}}</h2>-->
                         
-                            </div>
-                            {!! $page->details !!}
-                            <div class="d-flex justify-content-end">
-                                <a href="{{ route("service") }}" class="start-btn btn2">Our Service
-                                    <span>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                                            viewBox="0 0 1024 1024" >
-                                            <path fill="18232b"
-                                                d="M754.752 480H160a32 32 0 1 0 0 64h594.752L521.344 777.344a32 32 0 0 0 45.312 45.312l288-288a32 32 0 0 0 0-45.312l-288-288a32 32 0 1 0-45.312 45.312z" />
-                                        </svg>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-12 col-sm-12">
-                        <div class="about-img">
-                            <img src="{{asset($page?->image)}}" alt="img">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- about-area-end -->
-        @php
-    $page = $pages->where("slug","plans")->first();
-    @endphp
-        <!-- about-area -->
-        <section class="about-area">
-            <div class="container">
-                <div class="row justify-content-center align-items-center">
-                    <div class="col-lg-6 col-md-12 col-sm-12">
-                        <div class="about-img">
-                            <img src="{{asset($page?->image)}}" alt="img">
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-12 col-sm-12">
-                        <div class="about-text">
-                            <div class="head-text">
-                            <h5>{{$page->title}}</h5>
-                        <h2>{{$page->title_2}}</h2>
+        <!--                    </div>-->
+        <!--                    {!! $page->details !!}-->
+        <!--                    <div class="d-flex justify-content-end">-->
+        <!--                        <a href="{{ route("service") }}" class="start-btn btn2">Our Service-->
+        <!--                            <span>-->
+        <!--                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"-->
+        <!--                                    viewBox="0 0 1024 1024" >-->
+        <!--                                    <path fill="18232b"-->
+        <!--                                        d="M754.752 480H160a32 32 0 1 0 0 64h594.752L521.344 777.344a32 32 0 0 0 45.312 45.312l288-288a32 32 0 0 0 0-45.312l-288-288a32 32 0 1 0-45.312 45.312z" />-->
+        <!--                                </svg>-->
+        <!--                            </span>-->
+        <!--                        </a>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--            <div class="col-lg-6 col-md-12 col-sm-12">-->
+        <!--                <div class="about-img">-->
+        <!--                    <img src="{{asset($page?->image)}}" alt="img">-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </div>-->
+        <!--    </div>-->
+        <!--</section>-->
+        
+        
+        
+        <!--@php-->
+        <!--    $page = $pages->where("slug","plans")->first();-->
+        <!--@endphp-->
+        <!--<section class="about-area">-->
+        <!--    <div class="container">-->
+        <!--        <div class="row justify-content-center align-items-center">-->
+        <!--            <div class="col-lg-6 col-md-12 col-sm-12">-->
+        <!--                <div class="about-img">-->
+        <!--                    <img src="{{asset($page?->image)}}" alt="img">-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--            <div class="col-lg-6 col-md-12 col-sm-12">-->
+        <!--                <div class="about-text">-->
+        <!--                    <div class="head-text">-->
+        <!--                    <h5>{{$page->title}}</h5>-->
+        <!--                <h2>{{$page->title_2}}</h2>-->
                         
-                            </div>
-                            {!! $page->details !!}
+        <!--                    </div>-->
+        <!--                    {!! $page->details !!}-->
                             
-                            <a href="{{ route("plans") }}" class="start-btn btn2">Membership Plans
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                                        viewBox="0 0 1024 1024" >
-                                        <path fill="18232b"
-                                            d="M754.752 480H160a32 32 0 1 0 0 64h594.752L521.344 777.344a32 32 0 0 0 45.312 45.312l288-288a32 32 0 0 0 0-45.312l-288-288a32 32 0 1 0-45.312 45.312z" />
-                                    </svg>
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- about-area-end -->
-        @if ($testimonials->count())
-            <!-- testimonial-area -->
-            <section class="testimonial-area">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <div class="head-text oposite-head text-end">
-                                <h5><i class="fas fa-bolt"></i> Testimonial</h5>
-                                <h2>
-                                    Our Clients Satisfaction
-                                </h2>
-                                <p>Trusted by many customers</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-8">
-                            <div id="carouselExampleIndicators" class="carousel slide">
-                                <div class="carousel-indicators">
-                                    @foreach ($testimonials as $key => $row)
-                                        <button type="button" data-bs-target="#carouselExampleIndicators"
-                                            data-bs-slide-to="{{ $key }}" class="{{ $key == 0 ? 'active' : '' }}"
-                                            aria-current="true" aria-label="Slide {{ $key + 1 }}"></button>
-                                    @endforeach
-                                </div>
-                                <div class="carousel-inner">
-                                    @foreach ($testimonials as $key => $row)
-                                        <div class="carousel-item {{ $key == 0 ? 'active' : '' }} ">
-                                            <div class="single-testimonial">
-                                                <p>
-                                                    “{{ $row->message }}”.
-                                                </p>
-                                                <div class="mt-3 d-flex align-items-center">
-                                                    <img src="{{ asset($row->image) }}" alt="img">
-                                                    <div class="te-info">
-                                                        <h6>{{ $row->name }}</h6>
-                                                        <span>{{ $row->designation }}</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- testimonial-area-end -->
-        @endif
+        <!--                    <a href="{{ route("plans") }}" class="start-btn btn2">Membership Plans-->
+        <!--                        <span>-->
+        <!--                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"-->
+        <!--                                viewBox="0 0 1024 1024" >-->
+        <!--                                <path fill="18232b"-->
+        <!--                                    d="M754.752 480H160a32 32 0 1 0 0 64h594.752L521.344 777.344a32 32 0 0 0 45.312 45.312l288-288a32 32 0 0 0 0-45.312l-288-288a32 32 0 1 0-45.312 45.312z" />-->
+        <!--                            </svg>-->
+        <!--                        </span>-->
+        <!--                    </a>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </div>-->
+        <!--    </div>-->
+        <!--</section>-->
+        
+        <!--@if ($testimonials->count())-->
+        <!--    <section class="testimonial-area">-->
+        <!--        <div class="container">-->
+        <!--            <div class="row">-->
+        <!--                <div class="col-lg-4">-->
+        <!--                    <div class="head-text oposite-head text-end">-->
+        <!--                        <h5><i class="fas fa-bolt"></i> Testimonial</h5>-->
+        <!--                        <h2>-->
+        <!--                            Our Clients Satisfaction-->
+        <!--                        </h2>-->
+        <!--                        <p>Trusted by many customers</p>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--                <div class="col-lg-8">-->
+        <!--                    <div id="carouselExampleIndicators" class="carousel slide">-->
+        <!--                        <div class="carousel-indicators">-->
+        <!--                            @foreach ($testimonials as $key => $row)-->
+        <!--                                <button type="button" data-bs-target="#carouselExampleIndicators"-->
+        <!--                                    data-bs-slide-to="{{ $key }}" class="{{ $key == 0 ? 'active' : '' }}"-->
+        <!--                                    aria-current="true" aria-label="Slide {{ $key + 1 }}"></button>-->
+        <!--                            @endforeach-->
+        <!--                        </div>-->
+        <!--                        <div class="carousel-inner">-->
+        <!--                            @foreach ($testimonials as $key => $row)-->
+        <!--                                <div class="carousel-item {{ $key == 0 ? 'active' : '' }} ">-->
+        <!--                                    <div class="single-testimonial">-->
+        <!--                                        <p>-->
+        <!--                                            “{{ $row->message }}”.-->
+        <!--                                        </p>-->
+        <!--                                        <div class="mt-3 d-flex align-items-center">-->
+        <!--                                            <img src="{{ asset($row->image) }}" alt="img">-->
+        <!--                                            <div class="te-info">-->
+        <!--                                                <h6>{{ $row->name }}</h6>-->
+        <!--                                                <span>{{ $row->designation }}</span>-->
+        <!--                                            </div>-->
+        <!--                                        </div>-->
+        <!--                                    </div>-->
+        <!--                                </div>-->
+        <!--                            @endforeach-->
+        <!--                        </div>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </div>-->
+        <!--    </section>-->
+        <!--@endif-->
+        
         <!-- newslater-area -->
-        <section class="newslater-area">
-            <div class="container">
-                <div class="newslater-field text-center"
-                    style="background-image:url({{ asset('frontend') }}/img/about/last-fuel.webp);">
-                    <div class="head-text">
-                        <h2 class="mb-4">Need Immediate Gasoline</h2>
-                        <p>On energy service industry, EZ Fuel service has positioned itself as a leader in offering<br>
-                            top-tier mobile refueling solutions throughout.</p>
-                    </div>
-                    <a href="{{ route("contact") }}" class="start-btn mt-3">Contact Us Now
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                                viewBox="0 0 1024 1024" >
-                                <path fill="#F9C158"
-                                    d="M754.752 480H160a32 32 0 1 0 0 64h594.752L521.344 777.344a32 32 0 0 0 45.312 45.312l288-288a32 32 0 0 0 0-45.312l-288-288a32 32 0 1 0-45.312 45.312z" />
-                            </svg>
-                        </span>
-                    </a>
-                </div>
-            </div>
-        </section>
+        <!--<section class="newslater-area">-->
+        <!--    <div class="container">-->
+        <!--        <div class="newslater-field text-center"-->
+        <!--            style="background-image:url({{ asset('frontend') }}/img/about/last-fuel.webp);">-->
+        <!--            <div class="head-text">-->
+        <!--                <h2 class="mb-4">Need Immediate Gasoline</h2>-->
+        <!--                <p>On energy service industry, EZ Fuel service has positioned itself as a leader in offering<br>-->
+        <!--                    top-tier mobile refueling solutions throughout.</p>-->
+        <!--            </div>-->
+        <!--            <a href="{{ route("contact") }}" class="start-btn mt-3">Contact Us Now-->
+        <!--                <span>-->
+        <!--                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"-->
+        <!--                        viewBox="0 0 1024 1024" >-->
+        <!--                        <path fill="#F9C158"-->
+        <!--                            d="M754.752 480H160a32 32 0 1 0 0 64h594.752L521.344 777.344a32 32 0 0 0 45.312 45.312l288-288a32 32 0 0 0 0-45.312l-288-288a32 32 0 1 0-45.312 45.312z" />-->
+        <!--                    </svg>-->
+        <!--                </span>-->
+        <!--            </a>-->
+        <!--        </div>-->
+        <!--    </div>-->
+        <!--</section>-->
     </main>
     <!-- main-area-end -->
 @endsection

@@ -54,7 +54,13 @@
         <li class="br-menu-item">
             <a href="{{ route('admin.service.index') }}" class="br-menu-link {{ activeShow('admin/service*') }}">
                 <i class="icon ion-gear-a"></i>
-                <span class="menu-item-label">Services</span>
+                <span class="menu-item-label">Service and Prices</span>
+            </a>
+        </li>
+        <li class="br-menu-item">
+            <a href="{{ route('admin.date.index') }}" class="br-menu-link {{ activeShow('admin/date*') }}">
+                <i class="icon ion-gear-a"></i>
+                <span class="menu-item-label">Date Manage</span>
             </a>
         </li>
         <li class="br-menu-item">
@@ -75,6 +81,7 @@
                 <span class="menu-item-label">Contact Messages</span>
             </a>
         </li>
+
         <li class="br-menu-item">
             <a href="{{ route('admin.setting.index') }}" class="br-menu-link {{ activeShow('admin/setting*') }}">
                 <i class="icon ion-gear-a"></i>

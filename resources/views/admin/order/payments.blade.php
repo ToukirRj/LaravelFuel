@@ -23,8 +23,8 @@
                             <tr>
                                 <th scope="row">{{ $key + 1 }}</th>
                                 <td class="text-center">{{ $row->user?->name }} &nbsp ({{ $row->user?->phone }})</td>
-                                <td class="text-center">{{ $row->delivery_date_time }}</td>
-                                <td class="text-center">{{ $row->payment_date }}</td>
+                                <td class="text-center">{{ date('M-d-Y  H:i:s', strtotime($row->delivery_date_time)) }}</td>
+                                <td class="text-center">{{ date('M-d-Y'), ($row->payment_date) }}</td>
                                 <td class="text-center">{{ $row->qty }}</td>
                                 <td class="text-center">{{ $row->price }}</td>
                                 <td class="text-center">{{ $row->paid_amount }}</td>

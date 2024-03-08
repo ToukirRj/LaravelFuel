@@ -23,9 +23,9 @@ class UpdateSettingRequest extends FormRequest
     {
         return [
             "name"=>["required","min:3","max:225"],
-            "phone"=>["required","min:3","max:225"],
+            "phone"=>["nullable","min:3","max:225"],
             "email"=>["required","min:3","max:225"],
-            "address"=>["required","min:3","max:225"],
+            "address"=>["nullable","min:3","max:225"],
             "logo" =>["nullable","mimes:jpeg,jpg,png,gif,webp","max:10000","image",],
             "icon" =>["nullable","mimes:jpeg,jpg,png,gif,webp","max:10000","image",],
             "short_description"=>["required","max:500"],

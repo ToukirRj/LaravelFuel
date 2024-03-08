@@ -21,12 +21,21 @@ class StoreOrderRequest extends FormRequest
      */
     public function rules(): array
     {
+        // dd(request()->all());
         return [
             "vehicle_name" =>["required","max:225"],
             "vehicle_model" =>["required","max:225"],
-            "delivery_date_time" =>["required","date","after:now","before_or_equal:".now()->addDays(30)->toDateString()],
+            "service_id" =>["required"],
+            "date_id" =>["required"],
+            "time_id" =>["required"],
+            // "delivery_date_time" =>["required","date","after:now","before_or_equal:".now()->addDays(30)->toDateString()],
             "address"=>["required","max:225"],
-            "image" =>["nullable","mimes:jpeg,jpg,png,gif,webp","required","max:2500","image",],
+            // "image" =>["nullable","mimes:jpeg,jpg,png,gif,webp","required","max:2500","image",],
+            "image" =>["nullable", "required_if:oldimg,null"],
+
+            "price" =>["required_if:fillfullTank,null"],
+            "amount" =>["required_if:fillfullTank,null"],
+            "total" =>["required_if:fillfullTank,null"],
         ];
     }
 }

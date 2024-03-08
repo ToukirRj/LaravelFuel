@@ -3,6 +3,8 @@ use Carbon\Carbon;
 use App\Models\Plan;
 use App\Models\Setting;
 use Illuminate\Support\Facades\File;
+use App\Models\Day;
+use App\Models\Service;
 
 function activeShowSub($data=[]) {
     foreach($data as $row){
@@ -60,5 +62,21 @@ function planByStripePrice($stripe_price)
 function daysInWords($days = 0)
 {
     return 1 ;
+
+}
+function bookAbleDays()
+{
+    return Day::query()->with([
+        "times"=>fn($q)=>$q->whereDoesntHave("orders")->select(["id","time","day_id"])
+    ])->where([
+        "status"=>1
+    ])->select(["id","date"])->take(10)->get();
+
+}
+function serviceTypes()
+{
+    return Service::query()->where([
+        "status"=>1
+    ])->get();
 
 }

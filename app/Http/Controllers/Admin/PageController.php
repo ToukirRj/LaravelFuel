@@ -72,7 +72,7 @@ class PageController extends Controller
                     image:$request->image,
                     data:$page,
                     folder:"page",
-                    width:100
+                    width:1900
                 );
             }
             DB::commit();
